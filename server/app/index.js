@@ -1,15 +1,20 @@
-const Koa = require('koa');
+import Koa from 'koa';
 import http from 'http';
-import err from '../middleware/error';
-import SocketApi from '../socket';
-import {
-    routes,
-    allowedMethods
-} from '../middleware/routes';
+import err from './middleware/error';
+import SocketApi from './socket';
+import {routes, allowedMethods } from './middleware/routes';
 import IO from 'socket.io';
 
 const app = new Koa();
 const io = IO();
+
+
+const server = http.createServer(app.callback());
+const port = 3333;
+
+io.attach(server);
+
+new SocketApi(io);
 
 // Provide the context with the io object.
 app.use((ctx, next) => {
@@ -39,13 +44,6 @@ app.use(async(ctx, next) => {
     const ms = Date.now() - start;
     console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
-
-const server = http.createServer(app.callback());
-const port = 3333;
-
-io.attach(server);
-
-new SocketApi(io);
 
 server.listen(port, () => {
     console.log(`Server runnig on ${port} port`);

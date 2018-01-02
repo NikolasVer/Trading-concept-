@@ -7,10 +7,11 @@ const Equities$ = new Subject();
 const socket = openSocket(config.server);
 
 socket.on('connect', () => {
-  socket.emit('_equities');
+  socket.emit('equities');
 });
 
-socket.on('equities', (data) => {
+socket.on('_equities', (data) => {
+  console.log(data);
   Equities$.next(data);
 });
 

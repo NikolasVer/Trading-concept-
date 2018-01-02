@@ -10,6 +10,7 @@ const socket = openSocket(config.server);
 
 socket.on('connect', () => {
     socket.emit('room', room);
+    socket.emit('test', 'test');
 });
 
 socket.on('upadte', (data) => {
