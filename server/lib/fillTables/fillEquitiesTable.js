@@ -1,6 +1,6 @@
 // import db from '../app/db/queries/equities';
 const db = require('../app/db/queries/equities');
-const getData = require('./parseExel/equities');
+const getData = require('./parseExel');
 
  db.deleteAllItems()
       .then(() => getData().then(data => data))

@@ -11,16 +11,23 @@ const parseFile = () =>  {
             let initialData = workbook.Sheets.equities;
             let globalArray = [];
             let keysArray = ['A', 'B', 'C', 'D', 'E', 'F'];
-            let nameRow = ['tsexchange', 'producttype', 'issueclass', 'listings', 'region', 'country']
+            let nameRow = [
+                'tsexchange',
+                'producttype',
+                'bondtype',
+                'listings',
+                'region',
+                'country'
+            ];
 
             //  Перебираем row. Первый с оглавлением пропускаем.
-            for(let i = 2; i < 653; i++) {
+            for(let i = 2; i < 383; i++) {
 
                 // Конечный объект ряда.
                 let valueRow = {};
 
                 // Перебираем 6 колонок со значениями
-                for(let j = 0; j !== 6; j++) {
+                for(let j = 0; j !== keysArray.length; j++) {
                     // Конечное форматированное значение пары кордината:значение
                     let oneItemValueObject = {};
 
@@ -45,6 +52,9 @@ const parseFile = () =>  {
         return resolve(globalArray);
     });
 };
+
+
+// parseFile().then(data => console.log(data));
 
 // export default parseFile;
 
