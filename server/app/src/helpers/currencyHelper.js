@@ -21,8 +21,6 @@ export function _getFullName(base) {
         'XEM': 'NEM',
     }
 
-
-
     if(!nameCollection[base]) {
         throw new Error('Invalid currency name');
         return false;

@@ -1,7 +1,7 @@
 import knex from '../connection'
 
-async function getCurrenciesByBase(base) {
-  return await knex(base)
+function getCurrenciesByBase(base) {
+  return knex(base)
     .select('*')
 }
 
@@ -16,6 +16,10 @@ async function insertItemByBase(item, base) {
     .insert(item);
 }
 
+function getAllCurrencies() {
+  return knex('btc').select('*');
+}
+
 function delValueFromAllColumns() {
   return knex('btc').select('*').del()
       .then(() => knex('eth').select('*').del())
@@ -27,6 +31,7 @@ function delValueFromAllColumns() {
 }
 
 export default {
+  getAllCurrencies,
   getCurrenciesByBase,
   insertItemByBase,
   delValueFromAllColumns,

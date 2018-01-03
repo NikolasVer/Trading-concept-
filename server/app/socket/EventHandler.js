@@ -2,11 +2,11 @@ import equities from '../src/equities';
 import futures from '../src/futures';
 import options from '../src/options';
 import debt from '../src/debt';
+import currencies from '../src/currencies';
 
 class EventHandler {
     constructor(socket, io) {
         this.socket = socket;
-
         this.initEvents();
     }
 
@@ -14,6 +14,8 @@ class EventHandler {
         this.socket
             .on('room', this.roomHandler.bind(this))
 
+            .on('currencies', this.currenciesHandler.bind(this))
+            .on('currenciesByBase', this.currenciesByBaseHandler.bind(this))
             .on('futures', this.futuresHandler.bind(this))
             .on('options', this.optionsHandler.bind(this))
             .on('debt', this.debtHandler.bind(this))
@@ -25,6 +27,18 @@ class EventHandler {
         this.socket.join(room);
 
         console.log(`Person joined to ${room} room`);
+    }
+
+    currenciesHandler() {
+        currencies.getData().then(currenciesData => {
+            this.socket.emit('_currencies', currenciesData);
+        });
+    }
+
+    currenciesByBaseHandler(base) {
+        currencies.getDataByBase(base).then(currenciesData => {
+            this.socket.emit('_currenciesByBase', currenciesData);
+        });
     }
 
     futuresHandler() {
