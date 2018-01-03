@@ -4,6 +4,7 @@ import err from './middleware/error';
 import SocketApi from './socket';
 import {routes, allowedMethods } from './middleware/routes';
 import IO from 'socket.io';
+import CurrencyRate from './src/currencyRate';
 
 const app = new Koa();
 const io = IO();
@@ -15,6 +16,8 @@ const port = 3333;
 io.attach(server);
 
 new SocketApi(io);
+
+new CurrencyRate();
 
 // Provide the context with the io object.
 app.use((ctx, next) => {

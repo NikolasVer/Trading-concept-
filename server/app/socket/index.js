@@ -1,5 +1,5 @@
 import axios from 'axios';
-import BitcoinRate from "../getCurrency";
+import BitcoinRate from "../src/currencyRate";
 import EventHandler from './EventHandler';
 
 export default class SocketController {
