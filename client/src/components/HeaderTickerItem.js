@@ -4,11 +4,23 @@ import PropTypes from 'prop-types';
 class HeaderTickerItem extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             change: 0,
             percentChange: 0
         }
+    }
+
+    componentWillMount() {
+        const {price, previous} = this.props;
+
+        if(!price || !previous) return;
+
+        const change = price - previous;
+
+        this.setState(() => ({
+            change,
+            percentChange: (change / price) * 100
+        }));
     }
 
     componentWillReceiveProps(nextProps){
@@ -53,7 +65,8 @@ class HeaderTickerItem extends React.Component {
 
 HeaderTickerItem.propTypes = {
     name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired,
+    previous: PropTypes.number.isRequired
 }
 
 export default HeaderTickerItem;

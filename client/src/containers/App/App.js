@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import ChartContainer from "../Charter/ChartContainer";
+
 import Header from "../Header/Header";
+import ChartContainer from "../Charter/ChartContainer";
 import CurrencyPanel from '../CurrencyPanel/CurrencyPanel';
+import './App.css';
 
 class App extends Component {
-
-  componentWillMount() {
-    console.log('App Did mount')
-  }
-
   render() {
     return (
       <div className="App">

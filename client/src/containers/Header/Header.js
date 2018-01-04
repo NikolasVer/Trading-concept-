@@ -1,6 +1,5 @@
 import React from 'react';
 import Loader from '../../components/Loader';
-// import currencies from '../../api';
 import _ from 'lodash';
 import './Header.css';
 
@@ -11,7 +10,6 @@ import Currencies$ from '../../api/rates/currecncies';
 class Header extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             currency: []
         };
@@ -40,10 +38,13 @@ class Header extends React.Component {
         return (
             <header className={'main-header'}>
                 {
-                    this.state.currency.map(item => {
+                    this.state.currency.map((data, index) => {
+                        let lastItem = _.last(data);
                         return <HeaderTickerItem
-                                    name={item[0].fullName}
-                                    price={Number(item[item.length - 1].price)}
+                                    key={index}
+                                    name={lastItem.fullName}
+                                    price={Number(lastItem.price)}
+                                    previous={Number(data[data.length - 2].price)}
                                 />
                     })
                 }
