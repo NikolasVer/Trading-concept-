@@ -14,11 +14,12 @@ class InfoItem extends React.Component {
   }
 
   componentWillMount() {
+    console.log(this.props.onClick);
+
     const { price, previous } = this.props;
+    const change = price - previous;
 
     if (!price || !previous) return;
-
-    const change = price - previous;
 
     this.setState(() => ({
       change,
@@ -36,7 +37,6 @@ class InfoItem extends React.Component {
   }
 
   clickHandler() {
-    console.log('click');
     this.props.onClick()
   }
 
@@ -90,9 +90,9 @@ class InfoItem extends React.Component {
 
 InfoItem.propTypes = {
   name: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  previous: PropTypes.number.isRequired,
-  onClick: PropTypes.function
+  price: PropTypes.string.isRequired,
+  previous: PropTypes.string.isRequired,
+  // onClick: PropTypes.function.isRequired
 };
 
 export default InfoItem;

@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store, { history } from "./store";
 import App from './containers/App/App';
 import registerServiceWorker from './registerServiceWorker';
+
 import './index.css';
 
 const target = document.getElementById('root');

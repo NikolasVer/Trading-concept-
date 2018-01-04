@@ -2,19 +2,18 @@ import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import Header from '../../containers/Header/Header';
-import Futures$ from '../../api/contracts/futeres';
+import Debt$ from '../../api/contracts/debt';
 
-export default class Futeres extends React.Component {
+export default class Debt extends React.Component {
     constructor() {
         super();
         this.state = { data: null };
-  
-        this.futures$ = Futures$.data;
+        this.debt$ = Debt$.data;
     }
 
     componentWillMount() {
-      this.futures$
-          .distinctUntilChanged()
+      console.log(this.debt$);
+      this.debt$
           .subscribe(data => {
               this.setState(() => ({data}))
           });
@@ -39,8 +38,8 @@ export default class Futeres extends React.Component {
                   accessor: "producttype"
                 },
                 {
-                  Header: "Issue Class",
-                  accessor: "issueclass"
+                  Header: "Bond Type",
+                  accessor: "bondtype"
                 },
                 {
                   Header: 'Listings',
@@ -54,12 +53,6 @@ export default class Futeres extends React.Component {
                   Header: "Country",
                   accessor: "country"
                 },
-              ]}
-              defaultSorted={[
-                {
-                  id: "age",
-                  desc: true
-                }
               ]}
               defaultPageSize={10}
               className="-striped -highlight"

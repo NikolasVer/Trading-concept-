@@ -11,21 +11,17 @@ class HeaderTicker extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
 
-  componentWillMount() {
-    console.log(this.props.data);
-  }
-
   clickHandler() {
-    console.log("click 2");
     this.setState(state => ({ showChart: !state.showChart }));
   }
 
   render() {
     const { data } = this.props;
+    console.log(this.clickHandler);
     return (
       <div className={'header-ticker-wrapper'}>
         <InfoItem
-          name={data[0].name}
+          name={data[0].fullName}
           price={_.last(data).price}
           previous={data[data.length - 2].price}
           onClick={this.clickHandler}

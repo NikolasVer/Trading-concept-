@@ -8,8 +8,7 @@ export default class Futeres extends React.Component {
     constructor() {
         super();
         this.state = { data: null };
-  
-        this.futures$ = Futures$.data;
+        this.futures$ = Futures$;
     }
 
     componentWillMount() {
