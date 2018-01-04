@@ -1,7 +1,7 @@
 import React from 'react';
 import { TypeChooser } from 'react-stockcharts/lib/helper';
-import { getData } from '../utils'
-import ChartWithBollinger from "../components/ChartWithBollinger";
+import { getData } from '../../utils'
+import ChartWithBollinger from "../../components/ChartWithBollinger";
 
 class ChartContainer extends React.Component {
     componentDidMount() {

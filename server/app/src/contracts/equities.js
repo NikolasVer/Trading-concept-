@@ -1,4 +1,4 @@
-import db from '../../../db/queries/equities';
+import db from '../../db/queries/equities';
 
 export default {
     getData: async () => await db.getAllEquities()

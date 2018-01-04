@@ -1,6 +1,5 @@
 import { Subject } from 'rxjs';
 import SocketMain from '../socket';
-
 class Currencies {
     constructor(_socket) {
         this.currencies$ = new Subject();

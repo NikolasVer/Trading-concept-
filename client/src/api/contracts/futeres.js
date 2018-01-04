@@ -1,6 +1,5 @@
 import { Subject } from 'rxjs';
 import SocketMain from '../socket';
-
 class Futures {
     constructor(_socket) {
         this.socket = _socket;

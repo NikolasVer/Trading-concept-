@@ -1,7 +1,5 @@
 import { Subject } from 'rxjs';
 import SocketMain from '../socket';
-
-
 class Debt {
     constructor(_socket) {
         this.socket = _socket;

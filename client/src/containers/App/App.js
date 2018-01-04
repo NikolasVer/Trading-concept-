@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ChartContainer from "../ChartContainer";
+import ChartContainer from "../Charter/ChartContainer";
 import Header from "../Header/Header";
 import CurrencyPanel from '../CurrencyPanel/CurrencyPanel';
 

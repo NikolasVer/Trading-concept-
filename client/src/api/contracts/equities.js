@@ -1,6 +1,5 @@
 import { Subject } from 'rxjs';
 import SocketMain from '../socket';
-
 class Equities {
     constructor(_socket) {
         this.socket = _socket;
