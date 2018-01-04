@@ -1,39 +1,38 @@
 import knex from '../connection'
 
 function getCurrenciesByBase(base) {
-  return knex(base)
+  return knex('currency')
     .select('*')
+    .where('base', '=', base);
 }
 
 async function checkUniqueTime(base, time) {
-  return await knex(base)
+  return await knex('currency')
     .select('*')
-    .where('time', '=', time)
+    .where('base', '=', base)
+    .andWhere('time', '=', time)
 }
 
-async function insertItemByBase(item, base) {
-  return await knex(base)
+async function insertItem(item) {
+  return await knex('currency')
     .insert(item);
 }
 
 function getAllCurrencies() {
-  return knex('btc').select('*');
+  return knex('currency')
+    .select('*');
 }
 
 function delValueFromAllColumns() {
-  return knex('btc').select('*').del()
-      .then(() => knex('eth').select('*').del())
-      .then(() => knex('xmr').select('*').del())
-      .then(() => knex('bch').select('*').del())
-      .then(() => knex('xrp').select('*').del())
-      .then(() => knex('ltc').select('*').del())
-      .then(() => knex('xem').select('*').del());
+  return knex('currency')
+    .select('*')
+    .del()
 }
 
 export default {
-  getAllCurrencies,
   getCurrenciesByBase,
-  insertItemByBase,
-  delValueFromAllColumns,
-  checkUniqueTime
+  checkUniqueTime,
+  insertItem,
+  getAllCurrencies,
+  delValueFromAllColumns
 }

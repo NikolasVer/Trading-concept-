@@ -2,23 +2,23 @@ import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import { Logo, Tips} from "./Utils";
-import currencies from '../../api';
 import Header from '../../containers/Header/Header';
+import Futures$ from '../../api/contracts/futeres';
 
 export default class Futeres extends React.Component {
     constructor() {
         super();
         this.state = { data: null };
-        this.Equities$ = currencies.Equities;
+        this.futures$ = Futures$;
     }
 
     componentWillMount() {
-      this.Equities$
+      this.futures$
           .distinctUntilChanged()
           .subscribe(data => {
-              console.log(data);
               this.setState(() => ({data}))
           });
+
     }
     render() {
         const { data } = this.state;

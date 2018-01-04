@@ -1,7 +1,7 @@
-import equities from '../src/equities';
-import futures from '../src/futures';
-import options from '../src/options';
-import debt from '../src/debt';
+import equities from '../src/contracts/equities';
+import futures from '../src/contracts/futures';
+import options from '../src/contracts/options';
+import debt from '../src/contracts/debt';
 import currencies from '../src/currencies';
 
 class EventHandler {

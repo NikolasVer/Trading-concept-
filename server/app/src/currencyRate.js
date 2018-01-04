@@ -26,16 +26,15 @@ export default class CurrencyRate {
 
     insertToDatabase(item) {
         let data = _parseItem(item);
-        let base = item.ticker.base;
 
-        return db.checkUniqueTime('btc', data.time)
+        return db.checkUniqueTime(data.base, data.time)
             .then(_data => {
                 if(_data.length) return Promise.resolve();
-                return db.insertItemByBase(data, base.toLowerCase());
+                return db.insertItem(data);
             });
     }
 
-    dataLoop() {
+    async dataLoop() {
         setInterval(async () => {
             let data = await this.getData();
             this.rate.next(data);
