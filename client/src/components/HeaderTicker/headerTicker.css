@@ -1,0 +1,10 @@
+.header-chart-wrapper {
+  /* margin-top: 4px;
+  margin-left: 4px; */
+  /* border: 1px solid #0f1014; */
+  border-top: none;
+}
+
+.header-chart-wrapper .recharts-text {
+  font-size: 13px;
+}

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import { Logo, Tips} from "./Utils";
 import Header from '../../containers/Header/Header';
 import Futures$ from '../../api/contracts/futeres';
 
@@ -69,9 +68,6 @@ export default class Futeres extends React.Component {
               defaultPageSize={10}
               className="-striped -highlight"
             />
-            <br />
-            <Tips />
-            <Logo />
           </div>
         );
     }
