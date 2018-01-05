@@ -30,7 +30,7 @@ class HeaderTickerChart extends React.Component {
 
     return (
       <div className={"header-chart-wrapper"}>
-        <LineChart width={273} height={150} data={data} margin={{ left: 10 }}>
+        <LineChart width={270} height={150} data={data} margin={{ left: 10 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="time" />
           <YAxis domain={["dataMin", "dataMax"]} />

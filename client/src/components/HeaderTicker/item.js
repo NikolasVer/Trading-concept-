@@ -39,6 +39,8 @@ class InfoItem extends React.Component {
   }
 
   render() {
+    console.log('rerender');
+
     const { price, name } = this.props;
     const { percentChange, change } = this.state;
 

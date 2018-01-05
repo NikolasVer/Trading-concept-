@@ -7,16 +7,24 @@ import './headerTicker.css'
 class HeaderTicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { showChart: false };
+    this.state = {
+      showChart: true,
+      data: null
+    };
     this.clickHandler = this.clickHandler.bind(this);
   }
 
+  componentWillMount() {
+    const data = this.props.data;
+    this.setState(() => ({data}));
+  }
+
   clickHandler() {
-    this.setState(state => ({ showChart: !state.showChart }));
+    // this.setState(state => ({ showChart: !state.showChart }));
   }
 
   render() {
-    const { data } = this.props;
+    const { data } = this.state;
     return (
       <div className={'header-ticker-wrapper'}>
         <InfoItem
