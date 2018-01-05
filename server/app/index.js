@@ -11,7 +11,7 @@ const io = IO();
 
 
 const server = http.createServer(app.callback());
-const port = 9788;
+const port= 8081;
 
 io.attach(server);
 
@@ -48,6 +48,6 @@ app.use(async(ctx, next) => {
     console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
 
-server.listen(port, () => {
+server.listen({port, host: '217.12.196.40'}, () => {
     console.log(`Server runnig on ${port} port`);
 });
