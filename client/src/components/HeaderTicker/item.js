@@ -14,8 +14,6 @@ class InfoItem extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props.onClick);
-
     const { price, previous } = this.props;
     const change = price - previous;
 

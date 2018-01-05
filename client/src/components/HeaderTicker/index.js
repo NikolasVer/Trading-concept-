@@ -17,7 +17,6 @@ class HeaderTicker extends React.Component {
 
   render() {
     const { data } = this.props;
-    console.log(this.clickHandler);
     return (
       <div className={'header-ticker-wrapper'}>
         <InfoItem

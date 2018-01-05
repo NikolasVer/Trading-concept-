@@ -2,6 +2,8 @@ import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Futeres from "../../components/Futeres/index";
 import Debt from '../../components/Debt/index';
+import Equities from '../../components/Equities/index';
+import Options from '../../components/Options/index';
 
 class CurrencyPanel extends React.Component {
   constructor(props) {
@@ -15,6 +17,8 @@ class CurrencyPanel extends React.Component {
           <TabList>
             <Tab>Futeres</Tab>
             <Tab>Debt</Tab>
+            <Tab>Equities</Tab>
+            <Tab>Options</Tab>
           </TabList>
 
           <TabPanel>
@@ -23,6 +27,14 @@ class CurrencyPanel extends React.Component {
 
           <TabPanel>
             <Debt />
+          </TabPanel>
+
+          <TabPanel>
+            <Equities />
+          </TabPanel>
+
+          <TabPanel>
+            <Options />
           </TabPanel>
         </Tabs>
       </div>

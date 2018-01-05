@@ -2,22 +2,21 @@ import React from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import Header from '../../containers/Header/Header';
-import Futures$ from '../../api/contracts/futeres';
+import SocketMain from "../../api/socket";
 
-export default class Futeres extends React.Component {
+export default class Options extends React.Component {
     constructor() {
         super();
+        this.socket = SocketMain.socket;
         this.state = { data: null };
-        this.futures$ = Futures$;
     }
 
     componentWillMount() {
-      this.futures$
-          .distinctUntilChanged()
-          .subscribe(data => {
-              this.setState(() => ({data}))
-          });
+      this.socket.on("_options", data => {
+        this.setState(() => ({data}))
+      });
 
+      this.socket.emit("options");
     }
     render() {
         const { data } = this.state;
@@ -38,12 +37,20 @@ export default class Futeres extends React.Component {
                   accessor: "producttype"
                 },
                 {
-                  Header: "Issue Class",
-                  accessor: "issueclass"
+                  Header: "Underlying Type",
+                  accessor: "underlyingtype"
                 },
                 {
-                  Header: 'Listings',
-                  accessor: "listings"
+                  Header: "Strategy Types",
+                  accessor: "strategytypes"
+                },
+                {
+                  Header: "Series",
+                  accessor: "series"
+                },
+                {
+                  Header: "Contracts",
+                  accessor: "contracts"
                 },
                 {
                   Header: "Region",
@@ -52,7 +59,7 @@ export default class Futeres extends React.Component {
                 {
                   Header: "Country",
                   accessor: "country"
-                },
+                }
               ]}
               defaultSorted={[
                 {
