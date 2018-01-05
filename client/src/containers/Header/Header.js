@@ -4,18 +4,26 @@ import Currencies$ from "../../api/rates/currecncies";
 import HeaderTicker from "../../components/HeaderTicker/index";
 import _ from "lodash";
 import "./Header.css";
+import SocketMain from '../../api/socket';
+import { setInterval } from 'timers';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.socket = SocketMain.socket;
     this.state = { currency: [] };
-    this.currencies$ = Currencies$;
   }
 
   componentWillMount() {
-    this.currencies$.distinctUntilChanged().subscribe(data => {
+    this.socket.on("_currencies", data => {
       this.setState(() => ({ currency: data }));
     });
+
+    this.socket.emit("currencies");
+
+    setInterval(() => {
+      this.socket.emit("currencies");
+    }, 60000)
   }
 
   render() {

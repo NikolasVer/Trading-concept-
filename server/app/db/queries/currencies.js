@@ -3,7 +3,9 @@ import knex from '../connection'
 function getCurrenciesByBase(base) {
   return knex('currency')
     .select('*')
-    .where('base', '=', base);
+    .where('base', '=', base)
+    .orderBy('time', 'asc')
+    .limit(100);
 }
 
 async function checkUniqueTime(base, time) {

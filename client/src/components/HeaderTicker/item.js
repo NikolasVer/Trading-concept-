@@ -17,8 +17,6 @@ class InfoItem extends React.Component {
     const { price, previous } = this.props;
     const change = price - previous;
 
-    if (!price || !previous) return;
-
     this.setState(() => ({
       change,
       percentChange: change / price * 100
@@ -26,11 +24,11 @@ class InfoItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const change = nextProps.price - this.props.price;
+    const change = this.props.price - this.props.previous;
 
     this.setState(() => ({
       change,
-      percentChange: change / nextProps.price * 100
+      percentChange: change / this.props.price * 100
     }));
   }
 
@@ -39,8 +37,6 @@ class InfoItem extends React.Component {
   }
 
   render() {
-    console.log('rerender');
-
     const { price, name } = this.props;
     const { percentChange, change } = this.state;
 
