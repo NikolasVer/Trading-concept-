@@ -21,7 +21,7 @@ class HeaderTicker extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    const data = this.props.data;
+    const data = nextProps.data;
     this.setState(() => ({data}));
   }
 

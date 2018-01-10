@@ -48,6 +48,6 @@ app.use(async(ctx, next) => {
     console.log(`${ctx.method} ${ctx.url} - ${ms}`);
 });
 
-server.listen({port, host: '217.12.196.40'}, () => {
+server.listen({port}, () => {
     console.log(`Server runnig on ${port} port`);
 });
