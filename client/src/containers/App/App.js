@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-import Header from "../Header/Header";
-import ChartContainer from "../Charter/ChartContainer";
-import CurrencyPanel from '../CurrencyPanel/CurrencyPanel';
+// Components
+import AsideMenu from '../AsideMenu/index';
+import MainWrapper from '../MainWrapper/index';
+
+// Styles
 import './App.css';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <div className="App">
-          <Header />
-          <ChartContainer />
-          <CurrencyPanel />
+        <AsideMenu />
+        <MainWrapper />
       </div>
     );
   }

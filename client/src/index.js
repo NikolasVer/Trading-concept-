@@ -5,7 +5,7 @@ import store, { history } from "./store";
 import App from './containers/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import './index.css';
+import './styles/index.css';
 
 const target = document.getElementById('root');
 

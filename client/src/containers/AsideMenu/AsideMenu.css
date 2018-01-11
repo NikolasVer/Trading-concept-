@@ -1,0 +1,9 @@
+.Aside-menu {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 16px;
+  width: 60px;
+  height: 100%;
+  background: #191d25; }
+  .Aside-menu .icon {
+    width: 100%; }

@@ -1,0 +1,14 @@
+@import '../../styles/_variables.scss';
+
+.Aside-menu {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 16px;
+    width: 60px;
+    height: 100%;
+    background: $bg-color;
+
+    .icon {
+        width: 100%;
+    }
+}

@@ -14,6 +14,8 @@
     "lodash": "^4.17.4",
     "mobx": "^3.4.1",
     "namor": "^1.0.1",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.2",
     "pondjs": "^0.8.8",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
@@ -33,8 +35,12 @@
     "socket.io-client": "^2.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -43,6 +49,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "node-sass": "^4.7.2",
+    "react-addons-perf": "^15.4.2",
     "sass-loader": "^6.0.6"
   }
 }
