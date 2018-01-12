@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Style
-import '../MainWrapper.css';
+// import '../MainWrapper.css';
 
 export default class MainWrapper extends React.Component {
     constructor(props) {

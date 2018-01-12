@@ -9,7 +9,6 @@ import CurrencyRate from './src/currencyRate';
 const app = new Koa();
 const io = IO();
 
-
 const server = http.createServer(app.callback());
 const port= 8081;
 
@@ -18,6 +17,9 @@ io.attach(server);
 new SocketApi(io);
 
 new CurrencyRate();
+
+const serve = require('koa-static');
+app.use(serve('.'));
 
 // Provide the context with the io object.
 app.use((ctx, next) => {

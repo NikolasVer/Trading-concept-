@@ -7,6 +7,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 import './styles/index.css';
 
+
+import './initOpenFin';
+
 const target = document.getElementById('root');
 
 ReactDOM.render(

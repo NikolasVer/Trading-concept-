@@ -1,0 +1,40 @@
+{
+    "devtools_port": 9090,
+        "startup_app": {
+            "name": "Trading concept",
+            "icon": "http://cdn.openfin.co/hyperblotter/favicon.ico",
+            "description": "Trading concept",
+            "url": "http://localhost:3000",
+            "uuid": "OpenfinPOC",
+            "autoShow": true,
+            "defaultWidth": 480,
+            "maxWidth": 480,
+            "minWidth": 480,
+            "maxHeight": 50,
+            "defaultHeight": 50,
+            "minHeight": 50,
+            "defaultTop": 50,
+            "defaultLeft": 10,
+            "resizable": false,
+            "maximizable": false,
+            "frame": false,
+            "cornerRounding": {
+                "width": 5,
+                "height": 5,
+            "taskbarIconGroup": "myApp",
+            "loadErrorMessage": "There was an error loading the application."
+        },
+        "runtime": {
+            "arguments": "",
+            "version": "8.56.24.41",
+            "fallbackVersion": "7.53.23.23",
+            "futureVersion": "8.56.25.*",
+            "forceLatest": true
+        },
+        "shortcut": {
+            "company": "OpenFin",
+            "description": "Hyperblotter",
+            "name": "Hyperblotter"
+       }
+    }
+}
