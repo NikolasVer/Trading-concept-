@@ -5,6 +5,7 @@ import SocketApi from './socket';
 import {routes, allowedMethods } from './middleware/routes';
 import IO from 'socket.io';
 import CurrencyRate from './src/currencyRate';
+import serve from 'koa-static';
 
 const app = new Koa();
 const io = IO();
@@ -24,6 +25,9 @@ app.use((ctx, next) => {
     ctx.io = io;
     return next();
 });
+
+
+app.use(serve('.'));
 
 // Error handler
 app.use(err);

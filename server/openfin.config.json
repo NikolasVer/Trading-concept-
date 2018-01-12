@@ -1,0 +1,19 @@
+{
+  "devtools_port": 9090,
+  "startup_app": {
+    "name": "Trading concept",
+    "description": "Trading concept",
+    "url": "http://codeit.pro:3000",
+    "uuid": "OpenfinPOC",
+    "autoShow": true
+  },
+  "runtime": {
+    "arguments": "",
+    "version": "stable"
+  },
+  "shortcut": {
+    "company": "OpenFin",
+    "description": "Hyperblotter",
+    "name": "Hyperblotter"
+  }
+}
